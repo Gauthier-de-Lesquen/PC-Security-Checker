@@ -51,22 +51,22 @@ End If
 
 Dim registryPath, WshShell, objRegistry, valueNames, value, i
 
-registryPath = "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run\"
+registryPath = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\"
 Set WshShell = CreateObject("WScript.Shell")
 Set objRegistry = GetObject("winmgmts:\\.\root\default:StdRegProv")
 
 ' Liste des valeurs de la clé Run
-objRegistry.EnumValues &H80000002, "Software\Microsoft\Windows\CurrentVersion\Run", valueNames, Nothing
+objRegistry.EnumValues &H80000002, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", valueNames, Nothing
 
 If IsArray(valueNames) Then
     For i = 0 To UBound(valueNames)
         objRegistry.GetStringValue &H80000002, _
-            "Software\Microsoft\Windows\CurrentVersion\Run", valueNames(i), value
+            "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", valueNames(i), value
         
         If Not IsNull(value) Then
             ' Vérifie si le chemin ne contient pas "C:\Windows"
             If InStr(1, LCase(value), "c:\windows", vbTextCompare) = 0 Then
-                Msg = "Some Startup apps have been detected on the regedit's key HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run\" & valueNames(i) & " => " & value
+                Msg = "Some Startup apps have been detected on the regedit's key HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\" & valueNames(i) & " => " & value
 		MsgBox Msg, vbOKOnly, "Startup apps detection"
 	    Else
 		MsgBox "Still no suspect startup apps detected", vbOKOnly, "Startup apps detection"
