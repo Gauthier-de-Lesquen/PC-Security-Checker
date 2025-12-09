@@ -69,7 +69,7 @@ If IsArray(valueNames) Then
                 Msg = "Certains Programmes de démarrage suspects ont été détectés dans la clé HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ de l'éditeur de registres" & valueNames(i) & " => " & value
 		MsgBox Msg, vbOKOnly, "détection de programmes de démarrage"
 	    Else
-		MsgBox "Toujours aucun programme de démarrage suspect détecté", vbOKOnly, "détection de programmes de démarrage"
+		MsgBox "Aucun programme de démarrage suspect spplémentaire détecté", vbOKOnly, "détection de programmes de démarrage"
             End If
         End If
     Next
