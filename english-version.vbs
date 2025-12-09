@@ -69,7 +69,7 @@ If IsArray(valueNames) Then
                 Msg = "Some Startup apps have been detected on the regedit's key HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\" & valueNames(i) & " => " & value
 		MsgBox Msg, vbOKOnly, "Startup apps detection"
 	    Else
-		MsgBox "Still no suspect startup apps detected", vbOKOnly, "Startup apps detection"
+		MsgBox "no adding suspect startup apps detected", vbOKOnly, "Startup apps detection"
             End If
         End If
     Next
